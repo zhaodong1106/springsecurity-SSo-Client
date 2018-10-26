@@ -1,0 +1,26 @@
+server:
+  session:
+    cookie:
+      name: OAUTH2SESSION
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      access-token-uri: http://localhost:8081/server/oauth/token
+      client-id: SampleClientId
+      user-authorization-uri: http://localhost:8081/server/oauth/authorize
+      client-secret: secret
+      resource-ids: my_resource_id
+#      clientAuthenticationScheme: form
+      scope: all
+    resource:
+      user-info-uri: http://localhost:8081/server/user/me
+spring:
+  thymeleaf:
+    cache: false
+    encoding: utf-8
+    mode: HTML5
+    suffix: .html
+  profiles:
+    active: online

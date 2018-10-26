@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div th:text="${#servletContext.contextPath}">dasd</div>
+<!--ID: <span sec:authentication="#authentication.id"></span><br>-->
+Logged user:<span sec:authentication="name"></span><br>
+<!--<div sec:authorize="hasRole('ROLE_USER')">-->
+    <!--<label for="role">Roles:</label>-->
+    <!--<span id="role" sec:authentication="#authentication.authorities"></span><br>-->
+<!--</div>-->
+<!--<div sec:authorize="hasRole('ROLE_ADMIN')">-->
+    <!--<label for="role2">ADMIN Roles:</label>-->
+    <!--<span id="role2" sec:authentication="#authentication.authorities"></span><br>-->
+<!--</div>-->
+<!--email: <span sec:authentication="#authentication.email"></span><br>-->
+<!--<br>-->
+<br>
+<div sec:authorize="isAuthenticated()">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="退出"/>
+    </form>
+</div>
+</body>
+</html>
